@@ -1,0 +1,106 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e8eef6;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0,64,128,0.10);
+    padding: 32px 36px 28px;
+}
+
+h2 {
+    color: #004080;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.message-details {
+    font-size: 0.96rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.message-details p { margin-bottom: 10px; }
+
+.message-details ul {
+    padding-left: 22px;
+    margin-top: 10px;
+}
+
+.message-details ul li { margin-bottom: 6px; }
+
+.highlight-blue-bold { color: #004080; font-weight: 700; }
+.highlight-red-bold  { color: #cc0000; font-weight: 700; }
+.highlight-red       { color: #cc0000; }
+
+.button-container {
+    text-align: center;
+    margin: 22px 0 18px;
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 12px 32px;
+    background: #004080;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.97rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.btn-submit:hover { background: #0060c0; }
+
+.upload-links {
+    margin-top: 16px;
+    font-size: 0.95rem;
+}
+
+.upload-links ul {
+    padding-left: 20px;
+    line-height: 2;
+}
+
+.upload-links a { color: #0060c0; }
+.upload-links a:hover { text-decoration: underline; color: #004080; }
+
+.warning-box {
+    margin-top: 22px;
+    color: #cc0000;
+    font-weight: 600;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    border-top: 1px solid #f5c6cb;
+    padding-top: 14px;
+}
+
+.site-footer {
+    text-align: center;
+    color: #444;
+    font-size: 0.82rem;
+    padding-top: 20px;
+    margin-top: 24px;
+    border-top: 1px solid #e0e6ec;
+    line-height: 1.8;
+}
+.site-footer a { color: #0060c0; text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 500px) {
+    .container { padding: 20px 14px; }
+}

@@ -1,0 +1,719 @@
+/* === Cấu hình cơ bản và giao diện chính === */
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto; /* Thêm margin auto để căn giữa body */
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1500px; /* Giới hạn chiều rộng tối đa */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f4f4f4;
+}
+
+.container, .message-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Thay đổi từ 98vw sang 100% */
+    max-width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+
+/* Container căn giữa */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Tiêu đề */
+h1, h2 {
+    color: rgb(0, 64, 128) !important;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    color: rgb(0, 64, 128) !important;
+    margin-bottom: 20px;
+}
+
+/* Khu vực tìm kiếm */
+.search-section {
+    width: calc(100% - 20px); /* trừ 10px mỗi bên */
+    margin: 0 auto; /* căn giữa */
+    padding: 1px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.search-section h3 {
+    margin-top: 0;
+    color: #555;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Form và input */
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: left;
+}
+
+form input[type="text"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+form select {
+    width: 100%;
+}
+
+form input[type="submit"] {
+    background-color: #004080;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+form input[type="submit"]:hover {
+    background-color: #007bff;
+}
+
+/* Bảng responsive */
+.result-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    min-width: 100%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Bảng 2 cột */
+
+table.two-columns th:nth-child(1),
+table.two-columns td:nth-child(1) {
+    width: 30%;
+}
+
+table.two-columns th:nth-child(2),
+table.two-columns td:nth-child(2) {
+    width: 70%;
+}
+
+/* Bảng 3 cột */
+table.three-columns th:nth-child(1),
+table.three-columns td:nth-child(1) {
+    width: 20%;
+}
+
+table.three-columns th:nth-child(2),
+table.three-columns td:nth-child(2) {
+    width: 30%;
+}
+
+table.three-columns th:nth-child(3),
+table.three-columns td:nth-child(3) {
+    width: 50%;
+}
+
+
+/* Kết quả, thông báo */
+.no-results {
+    color: red;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.success-message {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 32px 0 0 0;
+    padding: 20px 32px;
+    background: linear-gradient(90deg, #e0ffe6 0%, #b7f5c0 100%);
+    color: #218838;
+    border: 1.5px solid #28a745;
+    border-radius: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.07);
+    position: relative;
+    max-width: 100%;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.success-message::before {
+    content: '✔ ';
+    color: #28a745;
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.result-section {
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.result-box {
+    background-color: #e9e9e9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px dashed #ccc;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Nút đồng ý */
+.agree-button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #004080;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.agree-button:hover {
+    background-color: #007bff;
+}
+
+/* footer */
+.footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.8em;
+    color: #9e9e9e !important;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Links */
+.message-details a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.message-details a:hover {
+    text-decoration: underline;
+}
+
+/* Lookup section & links */
+.lookup-section {
+    margin-top: 10px;
+}
+
+.lookup-section p {
+    margin-bottom: 10px;
+}
+
+.lookup-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.lookup-links a {
+
+    display: block;
+    padding: 3px 0;
+}
+
+/* Message-specific */
+#message-title {
+    color: #004080;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.message-details p {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.divider {
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+/* Highlight classes */
+.highlight-red {
+    color: red !important;
+}
+
+.highlight-red-bold {
+    color: red !important;
+    font-weight: bold;
+}
+
+.highlight-red-bold-center {
+    color: red !important;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; /* hoặc width: max-content; */
+}
+
+.center-tag {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.highlight-blue-bold {
+    color: rgb(35, 13, 221);
+    font-weight: bold;
+}
+
+/* Nút căn giữa */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.main-actions {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+}
+
+.upload-section {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.main-actions p {
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.upload-links a {
+    display: inline;
+    text-decoration: none;
+    color: #3946ff;
+    margin-bottom: 3px;
+}
+
+.upload-links a:hover {
+    text-decoration: underline;
+    color: #0011ff;
+    font-weight: bold;
+}
+
+.upload-links a.disabled {
+    color: #999 !important;
+    pointer-events: none;
+    text-decoration: none !important;
+    cursor: default;
+}
+
+/* Media queries cho responsive */
+@media (max-width: 1366px) {
+    html {
+        font-size: 20px; /* Kích thước font cho điện thoại */
+    }
+
+    .container, .message-box {
+        width: 98vw;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 980px) {
+    html {
+        font-size: 15px; /* Kích thước font cho điện thoại */
+    }
+
+    .container, .message-box {
+        width: 99vw;
+        padding: 25px;
+    }
+
+    .main-actions {
+        flex-direction: column;
+    }
+
+    .upload-section {
+        padding-left: 0;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 760px) {
+    .container, .message-box {
+        padding: 20px;
+        border-radius: 6px;
+        width: 100vw;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .success-message {
+        font-size: 1.1em;
+        padding: 16px;
+    }
+
+    .footer {
+        line-height: 1.1;
+        font-size: 0.8em;
+        padding-top: 10px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container, .message-box {
+        padding: 15px;
+        width: 100vw;
+        border-radius: 4px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .success-message {
+        font-size: 1em;
+        padding: 14px 8px;
+        border-radius: 7px;
+    }
+
+    .footer {
+        font-size: 0.8em;
+        line-height: 1.25;
+        padding: 10px;
+        margin-top: 20px;
+        width: max-content;
+        max-width: 100%;
+        white-space: normal;
+        word-break: break-word;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    form input[type="submit"], .agree-button {
+        width: 100%;
+    }
+}
+
+.lookup-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+/* Container chung cho sơ đồ tổng quan và các sơ đồ con */
+.maps-container {
+    max-width: 1500px; /* Giới hạn max-width giống body */
+    margin: 0 auto 50px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* Ảnh sơ đồ tổng quan */
+.main-map {
+    margin-bottom: 40px;
+    border: 2px solid #333;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+}
+
+.main-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Khung chứa các sơ đồ con */
+.sub-maps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Mỗi sơ đồ con */
+.sub-map {
+    flex: 1 1 45%; /* Tối thiểu 45% chiều rộng, co dãn */
+    max-width: 45%;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.sub-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.table-spacing {
+    border-collapse: separate;
+    border-spacing: 0 0px; /* khoảng cách giữa các hàng */
+    width: 100%;
+    margin: 20px 0;
+}
+
+.table-spacing th, .table-spacing td {
+    padding: 12px 15px; /* khoảng cách trong ô */
+    border: 1px solid #e0e0e0; /* viền ô nhẹ nhàng */
+    text-align: left;
+    background-color: white;
+}
+
+.table-spacing thead th {
+    background-color: #f8f9fa; /* màu nền cho header */
+    font-weight: bold;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+    text-align: center;
+}
+
+.table-spacing tbody tr:hover {
+    background-color: #f1f3f4; /* hiệu ứng hover cho hàng */
+}
+
+.table-spacing tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* màu xen kẽ cho các hàng */
+}
+
+.table-spacing tbody tr:nth-child(even):hover {
+    background-color: #f1f3f4;
+}
+
+/* Style đặc biệt cho cột điểm */
+.table-spacing .score-column {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Style cho ghi chú điều kiện */
+.table-spacing .condition-note {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+/* Lớp CSS cho màu xanh */
+.message-success {
+    color: #28a745;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #e9f7e9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center; /* Căn giữa nội dung */
+    display: block; /* Đảm bảo rằng nó là block-level để căn giữa */
+    margin-left: auto; /* Căn giữa */
+    margin-right: auto; /* Căn giữa */
+}
+
+/* Lớp CSS cho màu xanh */
+.message-success {
+    color: #28a745;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #e9f7e9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center; /* Căn giữa nội dung */
+    display: block; /* Đảm bảo rằng nó là block-level để căn giữa */
+    margin-left: auto; /* Căn giữa */
+    margin-right: auto; /* Căn giữa */
+}
+
+/* Lớp CSS cho màu đỏ */
+.message-fail {
+    color: #a72828;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 20px;
+    background-color: #f7e9ee;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center; /* Căn giữa nội dung */
+    display: block; /* Đảm bảo rằng nó là block-level để căn giữa */
+    margin-left: auto; /* Căn giữa */
+    margin-right: auto; /* Căn giữa */
+}
+
+/* Lớp CSS mặc định */
+.message-default {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center; /* Căn giữa nội dung */
+    display: block; /* Đảm bảo rằng nó là block-level để căn giữa */
+    margin-left: auto; /* Căn giữa */
+    margin-right: auto; /* Căn giữa */
+}
+
+
+
+
+
+/*.result.success {*/
+/*    text-align: center;*/
+/*    font-size: 28px;*/
+/*    font-weight: bold;*/
+/*    color: #28a745; !* Màu xanh lá nổi bật *!*/
+/*    padding: 15px 30px;*/
+/*    border-radius: 20px;*/
+/*    background-color: #e9f7e9;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
+/*.result.false {*/
+/*    text-align: center;*/
+/*    font-size: 28px;*/
+/*    font-weight: bold;*/
+/*    color: #a72828; !* Màu xanh lá nổi bật *!*/
+/*    padding: 15px 30px;*/
+/*    border-radius: 20px;*/
+/*    background-color: #f7e9ee;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
+/*.result.success:hover {*/
+/*    transform: translateY(-5px); !* Tạo hiệu ứng nhấc lên khi hover *!*/
+/*    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);*/
+/*}*/
+
+.center-red {
+    display: flex; /* Sử dụng Flexbox để căn giữa */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center; /* Căn giữa văn bản */
+    color: red; /* Màu chữ đỏ */
+    font-weight: bold; /* Chữ đậm */
+    font-size: 1.2em; /* Kích thước chữ */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+/* Responsive: màn hình nhỏ hơn 768px thì ảnh sơ đồ con chiếm 90% */
+@media (max-width: 768px) {
+    .sub-map {
+        flex-basis: 90%;
+        max-width: 90%;
+    }
+        /* Điều chỉnh bảng 2 cột cho điện thoại */
+    table.two-columns th:nth-child(1),
+    table.two-columns td:nth-child(1) {
+        width: 25%; /* Cột 1 chiếm 100% chiều rộng */
+    }
+
+    table.two-columns th:nth-child(2),
+    table.two-columns td:nth-child(2) {
+        width: 60%; /* Cột 2 cũng chiếm 100% chiều rộng */
+    }
+}

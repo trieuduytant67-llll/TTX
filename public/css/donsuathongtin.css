@@ -1,0 +1,76 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    background: #e8eef6;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0,64,128,0.10);
+    overflow: hidden;
+    padding-bottom: 28px;
+}
+
+.container h2 {
+    color: #004080;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 22px 28px 14px;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+}
+
+.message-details {
+    padding: 8px 32px 20px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #222;
+}
+
+.message-details p { margin-bottom: 8px; }
+
+.message-details ul {
+    padding-left: 28px;
+    margin: 6px 0 8px;
+}
+
+.message-details ul li { margin-bottom: 4px; }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 12px 32px 0;
+}
+
+.agree-button {
+    display: inline-block;
+    background: #004080;
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 4px;
+    letter-spacing: 0.01em;
+    transition: background 0.2s;
+}
+
+.agree-button:hover {
+    background: #0060c0;
+}
+
+@media (max-width: 500px) {
+    .message-details { padding: 8px 14px 20px; }
+    .button-container { padding: 12px 14px 0; }
+    .agree-button { width: 100%; text-align: center; }
+}
